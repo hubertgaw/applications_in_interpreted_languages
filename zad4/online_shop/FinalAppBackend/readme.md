@@ -1,0 +1,9 @@
+'categories', 'CREATE TABLE `categories` (\n  `id` int NOT NULL AUTO_INCREMENT,\n  `name` varchar(45) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci'
+
+'status', 'CREATE TABLE `status` (\n  `id` int NOT NULL AUTO_INCREMENT,\n  `name` varchar(40) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci'
+
+'products', 'CREATE TABLE `products` (\n  `id` int NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) DEFAULT NULL,\n  `description` varchar(255) DEFAULT NULL,\n  `price` decimal(6,2) DEFAULT NULL,\n  `weight` decimal(6,3) DEFAULT NULL,\n  `category` int DEFAULT NULL,\n  PRIMARY KEY (`id`),\n  KEY `category_fk_idx` (`category`),\n  CONSTRAINT `category_fk` FOREIGN KEY (`category`) REFERENCES `categories` (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci'
+
+'orders', 'CREATE TABLE `orders` (\n  `id` int NOT NULL AUTO_INCREMENT,\n  `status` int NOT NULL,\n  `approval_date` datetime DEFAULT NULL,\n  `username` varchar(50) NOT NULL,\n  `email` varchar(50) NOT NULL,\n  `phone_number` char(9) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `status_fk_idx` (`status`),\n  CONSTRAINT `status_fk` FOREIGN KEY (`status`) REFERENCES `status` (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci'
+
+'order_items', 'CREATE TABLE `order_items` (\n  `id` int NOT NULL AUTO_INCREMENT,\n  `order_id` int NOT NULL,\n  `product_id` int NOT NULL,\n  `amount` int unsigned NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `order_fk_idx` (`order_id`),\n  KEY `product_fk_idx` (`product_id`),\n  CONSTRAINT `order_fk` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),\n  CONSTRAINT `product_fk` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci'

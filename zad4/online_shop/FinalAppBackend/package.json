@@ -1,0 +1,28 @@
+{
+  "name": "online_shop",
+  "version": "1.0.0",
+  "description": "online shop API made in node.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hubertgaw/online_shop.git"
+  },
+  "author": "Hubert Gawlowski, Kamil Kiszko-Zgierski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hubertgaw/online_shop/issues"
+  },
+  "homepage": "https://github.com/hubertgaw/online_shop#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bookshelf": "^1.2.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "knex": "^0.21.15",
+    "mysql": "^2.18.1",
+    "underscore": "^1.12.0"
+  }
+}

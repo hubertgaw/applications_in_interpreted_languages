@@ -1,0 +1,20 @@
+body {
+    /* background-color: rgb(180, 158, 117); */
+    background-color: whitesmoke;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+h1 {
+    font-weight: 700;
+}
+td, th {
+    text-align: center;
+    line-height: 140%;
+}
+label {
+    font-weight: 700;
+}
+
+#todoTableDiv {
+    margin-top: 30px;
+}
+
